@@ -37,13 +37,13 @@ export const Navigation: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="flex md:hidden items-center space-x-4">
-           <button onClick={toggleLanguage} className="text-xs uppercase tracking-wider text-secondary font-medium">
-            <span className={language === 'en' ? 'text-primary font-bold' : ''}>EN</span>
-            <span className="mx-1">|</span>
-            <span className={language === 'tr' ? 'text-primary font-bold' : ''}>TR</span>
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} className="text-primary z-50">
+        <div className="flex md:hidden items-center space-x-6 z-50">
+           <div className="text-[11px] font-bold cursor-pointer tracking-widest text-primary flex items-center pt-[2px]">
+            <span onClick={() => { if(language !== 'en') toggleLanguage() }} className={`transition-opacity ${language === 'en' ? 'border-b border-primary' : 'opacity-30'}`}>EN</span>
+            <span className="mx-2 font-normal opacity-30">|</span>
+            <span onClick={() => { if(language !== 'tr') toggleLanguage() }} className={`transition-opacity ${language === 'tr' ? 'border-b border-primary' : 'opacity-30'}`}>TR</span>
+          </div>
+          <button onClick={() => setIsOpen(!isOpen)} className="text-primary focus:outline-none">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -51,7 +51,7 @@ export const Navigation: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-display">
+        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 text-2xl font-display pt-20">
           <a href="#about" onClick={() => setIsOpen(false)}>{t.about[language]}</a>
           <a href="#experience" onClick={() => setIsOpen(false)}>{t.experience[language]}</a>
           <a href="#skills" onClick={() => setIsOpen(false)}>{t.skills[language]}</a>
@@ -59,10 +59,10 @@ export const Navigation: React.FC = () => {
         </div>
       )}
 
-      {/* Mobile Floating CTA */}
-      <div className="md:hidden fixed bottom-6 left-6 right-6 z-40">
-         <a href="#contact" className="block w-full bg-primary text-white text-center py-4 text-sm font-medium shadow-xl">
-            {t.getInTouch[language]}
+      {/* Mobile Floating CTA - Fixed to bottom */}
+      <div className="md:hidden fixed bottom-6 left-5 right-5 z-40">
+         <a href="#contact" className="flex items-center justify-center w-full bg-primary text-white text-center h-[56px] text-sm font-medium shadow-2xl">
+            {t.getInTouch[language].replace(' ↗', '')} <span className="ml-2">↗</span>
          </a>
       </div>
     </nav>

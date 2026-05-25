@@ -29,7 +29,7 @@ html {
 }
 
 .small-caps {
-  @apply text-[11px] uppercase tracking-[0.15em] font-medium text-secondary;
+  @apply text-[0.7rem] uppercase tracking-[0.1em] font-medium text-secondary;
 }
 
 .vertical-text {
