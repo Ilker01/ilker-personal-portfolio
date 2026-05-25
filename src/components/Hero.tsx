@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { content } from '../data/content';
 import { motion } from 'motion/react';
 import ilkerPic from './ilkerpic.png';
+import ilkerPicWeb from './ilkerpicweb.png';
 
 export const Hero: React.FC = () => {
   const { language } = useLanguage();
@@ -79,10 +80,11 @@ export const Hero: React.FC = () => {
                  {t.greeting[language]}
               </motion.h1>
               <div className="max-w-[420px] 2xl:max-w-md mt-10 space-y-6 relative">
+                <div className="absolute -inset-12 bg-white/80 blur-2xl z-[-1] rounded-[100px] pointer-events-none" />
                 <p className="text-[clamp(1.2rem,2vw,1.5rem)] font-light leading-relaxed text-primary relative z-10">
                   — {t.subtext[language]}
                 </p>
-                <p className="text-[15px] 2xl:text-base text-primary/80 leading-loose font-medium relative z-10">
+                <p className="text-[15px] 2xl:text-base text-primary/80 leading-loose font-medium relative z-10 border-l border-primary/20 pl-4 py-1">
                   {language === 'en' ? 'I bridge the gap between AI capability and real business outcomes — from first conversation to production deployment.' : 'Yapay zeka kabiliyeti ile gerçek ticari sonuçlar arasındaki köprüyü kuruyorum — ilk görüşmeden prodüksiyona kadar.'}
                 </p>
               </div>
@@ -97,8 +99,8 @@ export const Hero: React.FC = () => {
             className="hidden lg:block w-full lg:absolute lg:right-0 lg:top-0 lg:w-[45%] lg:h-[100%] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 relative z-0"
           >
             <div className="w-full h-full bg-[#F8F8F8] flex items-end justify-center relative">
-               <div className="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none xl:block hidden"></div>
-               <img src={ilkerPic} className="w-full h-full object-cover object-top" alt="Fırat İlker Türk"/>
+               <div className="absolute inset-y-0 left-0 w-[60%] sm:w-[70%] bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none xl:block hidden"></div>
+               <img src={ilkerPicWeb} className="w-full h-full object-cover object-top" alt="Fırat İlker Türk"/>
             </div>
           </motion.div>
       </div>
